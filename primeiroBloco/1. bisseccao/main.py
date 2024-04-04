@@ -43,7 +43,7 @@ def main():
     open(os.path.join(dir_path, 'out.txt'), 'w').close()
 
     # Abre o arquivo in.txt e lê as funções e parâmetros
-    with open(os.path.join(dir_path, 'in.txt'), 'r') as f:
+    with open(os.path.join(dir_path, '..','in_raizes.txt'), 'r') as f:
         linhas = f.readlines()
 
     # Itera sobre as linhas do arquivo de entrada e executa a bisseção para cada função
