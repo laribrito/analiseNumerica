@@ -1,0 +1,6 @@
+0.25 * (x - 2) + 0.1 * math.sin(x)
+F(1.6001739501) = 3.384144320606186e-07 / encontrado com 16 interacoes
+
+x+4
+F(0.0) = 4 / encontrado com 0 interacoes
+
