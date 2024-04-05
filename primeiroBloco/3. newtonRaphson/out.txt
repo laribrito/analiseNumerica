@@ -1,0 +1,18 @@
+0.25 * (x - 2) + 0.1 * math.sin(x)
+F(1.6001725096) = -1.747947782348991e-08 / encontrado com 3 interacoes
+
+0.1 = 1 - ( 1 + x + (x*x)/2) * math.exp(-x)
+F(1.1020653935) = -1.3163070494703888e-08 / encontrado com 4 interacoes
+
+0.1 = 1 - ( 1 + x + (x*x)/2) * math.exp(-x)
+ERRO: float division by zero
+
+0.9 = 1 - ( 1 + x + (x*x)/2) * math.exp(-x)
+F(5.322320045) = 2.0241183729119427e-08 / encontrado com 5 interacoes
+
+37.104740 + 3.15122 * x - (2*x*x)/2 = 0
+F(-4.7162329266) = -5.416414481373977e-07 / encontrado com 4 interacoes
+
+37.104740 + 3.15122 * x - (2*x*x)/2 = 0
+F(7.8674528836) = -5.9827698351000436e-12 / encontrado com 4 interacoes
+
