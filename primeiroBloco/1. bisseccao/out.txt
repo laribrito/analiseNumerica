@@ -4,8 +4,11 @@ F(1.6001739501) = 3.384144320606186e-07 / encontrado com 16 interacoes
 0.1 = 1 - ( 1 + x + (x*x)/2) * math.exp(-x)
 F(1.1020641326) = 2.4117625910258234e-07 / encontrado com 19 interacoes
 
+0.1 = 1 - ( 1 + x + (x*x)/2) * math.exp(-x)
+F(1.10206604) = -1.435871722355042e-07 / encontrado com 16 interacoes
+
 0.9 = 1 - ( 1 + x + (x*x)/2) * math.exp(-x)
-F(5.3223228454) = -1.7337236879466644e-07 / encontrado com 19 interacoes
+F(5.3223190307) = 9.036859349720316e-08 / encontrado com 18 interacoes
 
 37.104740 + 3.15122 * x - (2*x*x)/2 = 0
 F(-4.7162329107) = -3.414839291338012e-07 / encontrado com 26 interacoes

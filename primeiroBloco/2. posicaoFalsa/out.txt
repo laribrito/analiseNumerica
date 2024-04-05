@@ -1,0 +1,18 @@
+0.25 * (x - 2) + 0.1 * math.sin(x)
+F(1.6001731976) = 1.524784388473588e-07 / encontrado com 6 interacoes
+
+0.1 = 1 - ( 1 + x + (x*x)/2) * math.exp(-x)
+F(1.1020699892) = -9.402524708546078e-07 / encontrado com 119 interacoes
+
+0.1 = 1 - ( 1 + x + (x*x)/2) * math.exp(-x)
+F(1.1020619755) = 6.763368546602866e-07 / encontrado com 9 interacoes
+
+0.9 = 1 - ( 1 + x + (x*x)/2) * math.exp(-x)
+F(5.3223327836) = -8.604737721240596e-07 / encontrado com 27 interacoes
+
+37.104740 + 3.15122 * x - (2*x*x)/2 = 0
+F(-4.7162328477) = 4.5084401278927544e-07 / encontrado com 16 interacoes
+
+37.104740 + 3.15122 * x - (2*x*x)/2 = 0
+F(7.8674528658) = 2.2358029383440226e-07 / encontrado com 11 interacoes
+
