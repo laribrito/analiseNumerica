@@ -1,3 +1,12 @@
--0.759493670886076 0.11392405063291135 1.0632911392405062
-A solução não é tão boa assim
+3.0 -2.5 7.000000000000002
+A solução é suficientemente boa
+
+1.0 -0.0 -1.0
+A solução é suficientemente boa
+
+1.0632911392405062 0.11392405063291135 -0.759493670886076
+A solução é suficientemente boa
+
+-2.0 3.0 0.0
+A solução é suficientemente boa
 

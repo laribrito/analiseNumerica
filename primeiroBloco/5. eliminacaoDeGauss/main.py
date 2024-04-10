@@ -43,7 +43,6 @@ class EliminacaoGauss(SolucoesSistema):
                 j += 1
             X[i] = (s/M[i][i])
         
-        X.reverse()
         self.solution = X
         avaliacao = self.test()
         lista_de_strings = [str(numero) for numero in X]
