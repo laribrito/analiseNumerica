@@ -1,6 +1,7 @@
 import sympy as sp
 import sys
 import os
+import copy
 
 # Obtém o diretório atual do script
 dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -17,8 +18,8 @@ class EliminacaoGauss(SolucoesSistema):
 
     def resolve(self):
         j = 0
-        M = self.M
-        B = self.B
+        M = copy.deepcopy(self.M)
+        B = copy.deepcopy(self.B)
         # transformação da matriz
         while j < self.k - 1:
             i = j + 1
@@ -43,16 +44,11 @@ class EliminacaoGauss(SolucoesSistema):
             X[i] = (s/M[i][i])
         
         X.reverse()
+        self.solution = X
+        avaliacao = self.test()
         lista_de_strings = [str(numero) for numero in X]
         string = ' '.join(lista_de_strings)
-        return string
-    
-    def printMatriz(self, m):
-        for i in m:
-            for j in i:
-                print(j, end=' ')
-            print('\n')
-        print()
+        return f'{string}\n{avaliacao}'
 
 def main():
     # Limpa o arquivo out.txt
@@ -74,7 +70,7 @@ def main():
 
             # Escreve os resultados no arquivo out.txt
             with open(os.path.join(dir_path, 'out.txt'), 'a') as arquivo:
-                arquivo.write(str(resultado) + '\n\n')
+                arquivo.write(resultado + '\n\n')
             matriz.clear()
         else:
             matriz.append(linha)

@@ -1,10 +1,25 @@
 class SolucoesSistema:
+    tolerance = 1e-6
+
     def __init__(self, matriz) -> None:
         if not self.ehMatrizValida(matriz):
             raise Exception('Essa matriz não é quadrada ou o vetor B não foi passado')
         
         self.M, self.B = self.separarMatriz(matriz)
         self.k = len(matriz)
+        self.solution = None
+
+    def test(self):
+        if self.solution:
+            for linha, esperado in zip(self.M, self.B):
+                result = 0
+                for sol, lin in zip(self.solution, linha):
+                    result += sol * lin
+
+                if abs(result - esperado)>SolucoesSistema.tolerance:
+                    return 'A solução não é tão boa assim'
+            return 'A solução é suficientemente boa'
+        return 'Não há solução'
 
     def separarMatriz(self, matriz):
         m = []
