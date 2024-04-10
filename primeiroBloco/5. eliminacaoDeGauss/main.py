@@ -1,4 +1,3 @@
-import sympy as sp
 import sys
 import os
 import copy
