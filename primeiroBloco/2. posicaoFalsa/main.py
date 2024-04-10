@@ -42,9 +42,6 @@ class PosicaoFalsa(EncontrarRaizClass.EncontrarRaiz):
         return f'F({op.truncate(c, 10)}) = {self.F(c)} / encontrado com {x} interacoes'
 
 def main():
-    # Limpa o arquivo out.txt
-    open(os.path.join(dir_path, 'out.txt'), 'w').close()
-
     # Abre o arquivo in.txt e lê as funções e parâmetros
     with open(os.path.join(dir_path,'in.txt'), 'r') as f:
         linhas = f.readlines()
@@ -59,7 +56,7 @@ def main():
 
         resultado = PosicaoFalsa(f_str, toleran, a, b).resolve()
         # Escreve os resultados no arquivo out.txt
-        with open(os.path.join(dir_path, 'out.txt'), 'a') as arquivo:
+        with open(os.path.join(dir_path, 'out.txt'), 'w') as arquivo:
             arquivo.write(f_str + '\n')
             arquivo.write(str(resultado) + '\n\n')
 
