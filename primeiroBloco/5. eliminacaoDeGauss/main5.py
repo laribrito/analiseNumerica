@@ -44,9 +44,7 @@ class EliminacaoGauss(SolucoesSistema):
         
         self.solution = X
         avaliacao = self.test()
-        lista_de_strings = [str(numero) for numero in X]
-        string = ' '.join(lista_de_strings)
-        return f'{string}\n{avaliacao}'
+        return f'{self.vetorParaStr(X)}\n{avaliacao}'
 
 def main():
     # Limpa o arquivo out.txt

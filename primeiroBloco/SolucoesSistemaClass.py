@@ -9,6 +9,11 @@ class SolucoesSistema:
         self.k = len(matriz)
         self.solution = None
 
+    def vetorParaStr(self, v, sep=' '):
+        lista_de_strings = [str(numero) for numero in v]
+        string = sep.join(lista_de_strings)
+        return string
+
     def test(self):
         if self.solution:
             for linha, esperado in zip(self.M, self.B):

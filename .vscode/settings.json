@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./primeiroBloco/5. eliminacaoDeGauss"
+    ]
+}
