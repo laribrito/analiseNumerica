@@ -55,6 +55,9 @@ class EliminacaoGauss(SolucoesSistema):
         print()
 
 def main():
+    # Limpa o arquivo out.txt
+    open(os.path.join(dir_path, 'out.txt'), 'w').close()
+
     # Abre o arquivo in.txt e lê as funções e parâmetros
     with open(os.path.join(dir_path,'in.txt'), 'r') as f:
         linhas = f.readlines()
@@ -70,7 +73,7 @@ def main():
                 resultado = f'ERRO: {e}'
 
             # Escreve os resultados no arquivo out.txt
-            with open(os.path.join(dir_path, 'out.txt'), 'w') as arquivo:
+            with open(os.path.join(dir_path, 'out.txt'), 'a') as arquivo:
                 arquivo.write(str(resultado) + '\n\n')
             matriz.clear()
         else:
