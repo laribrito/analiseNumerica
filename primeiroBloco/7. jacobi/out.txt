@@ -1,0 +1,15 @@
+2.9999986473167044 -2.500001133916424 6.999999271859411
+x(1) esperava 7.85 mas foi calculado como 7.849996200969873
+O vetor encontrado não pode ser considerado solução
+
+-1.107096109018456e+308 -1.1397863545746128e+308 -1.3602869770742338e+308
+x(1) esperava -2.0 mas foi calculado como -inf
+O vetor encontrado não pode ser considerado solução
+
+1.0632906408644076 0.11392372536198447 -0.7594933467132354
+O vetor encontrado está bem próximo da solução
+
+-1.9999862639188377 2.999996938318889 5.127252305614505e-06
+x(1) esperava 4.0 mas foi calculado como 4.000002485466635
+O vetor encontrado não pode ser considerado solução
+

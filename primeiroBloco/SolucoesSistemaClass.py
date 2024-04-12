@@ -8,6 +8,19 @@ class SolucoesSistema:
         self.M, self.B = self.separarMatriz(matriz)
         self.k = len(matriz)
         self.solution = None
+    
+    def variacaoAbs(self, a:list, b:list):
+        for ax, bx in zip(a, b):
+            if abs(ax - bx) > SolucoesSistema.tolerance:
+                return False
+        return True
+
+    def variacaoRel(self, a:list, b:list):
+        maxVar = max(a)
+        for ax, bx in zip(a, b):
+            if abs((ax - bx)/maxVar) > SolucoesSistema.tolerance:
+                return False
+        return True
 
     def vetorParaStr(self, v, sep=' '):
         lista_de_strings = [str(numero) for numero in v]
@@ -16,14 +29,24 @@ class SolucoesSistema:
 
     def test(self):
         if self.solution:
-            for linha, esperado in zip(self.M, self.B):
+            for n, linha, esperado in zip(range(self.k), self.M, self.B):
                 result = 0
                 for sol, lin in zip(self.solution, linha):
                     result += sol * lin
 
-                if abs(result - esperado)>SolucoesSistema.tolerance:
-                    return 'A solução não é tão boa assim'
-            return 'A solução é suficientemente boa'
+
+                delta = abs(result - esperado)
+                delta2 = abs(delta - SolucoesSistema.tolerance)
+                
+                txtExtra = f'x({n+1}) esperava {esperado} mas foi calculado como {result}'
+
+                if delta2>SolucoesSistema.tolerance:
+                    return f'{txtExtra}\nO vetor encontrado não pode ser considerado solução'
+
+                if delta>SolucoesSistema.tolerance:
+                    return 'O vetor encontrado está bem próximo da solução'
+            return 'O vetor encontrado é uma solução é suficientemente boa'
+            
         return 'Não há solução'
 
     def separarMatriz(self, matriz):
