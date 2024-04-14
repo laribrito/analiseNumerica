@@ -8,6 +8,19 @@ class SolucoesSistema:
         self.M, self.B = self.separarMatriz(matriz)
         self.k = len(matriz)
         self.solution = None
+
+    def MatrizParaStr(matriz):
+        cols = len(matriz)
+        rows = len(matriz[0])
+
+        txt = ''
+        for i in range(rows):
+            txt+='['
+            for j in range(cols):
+                txt+=f'{matriz[i][j]:4.5f}, '
+            txt=txt[:-2]
+            txt+=']\n'
+        return txt[:-1]
     
     def variacaoAbs(self, a:list, b:list):
         for ax, bx in zip(a, b):
@@ -22,7 +35,7 @@ class SolucoesSistema:
                 return False
         return True
 
-    def vetorParaStr(self, v, sep=' '):
+    def vetorParaStr(v, sep=' '):
         lista_de_strings = [str(numero) for numero in v]
         string = sep.join(lista_de_strings)
         return string

@@ -79,7 +79,7 @@ class FatoracaoLu(SolucoesSistema):
 
         avalicao = self.test()
         
-        return f'{LU}\n{self.vetorParaStr(self.Y)}\n{self.vetorParaStr(self.solution)}\n{avalicao}'
+        return f'{LU}\n{SolucoesSistema.vetorParaStr(self.Y)}\n{SolucoesSistema.vetorParaStr(self.solution)}\n{avalicao}'
     
     def LUparaStr(self):
         txt = ''
