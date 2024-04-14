@@ -13,9 +13,9 @@ from SolucoesSistemaClass import SolucoesSistema
 class MatrizInversaGaussJordan(SolucoesSistema):
     def __init__(self, matriz) -> None:
         super().__init__(matriz)
+        self.M_inversa = None
 
-    def resolve(self):
-        # encontrar a matriz inversa
+    def inversa(self):
         # Criar matriz identidade
         M = copy.deepcopy(self.M)
 
@@ -43,15 +43,20 @@ class MatrizInversaGaussJordan(SolucoesSistema):
                         matrizAumentada[i][j] -= fator * matrizAumentada[col][j]
 
         # Retornar a parte direita da matriz aumentada (a inversa)
-        inversa = [row[self.k:] for row in matrizAumentada]
+        self.M_inversa = [row[self.k:] for row in matrizAumentada]
+        return self.M_inversa
 
-        x = MatrizInversaGaussJordan.multiMatrizes(inversa, [[item] for item in self.B])
+    def resolve(self):
+        # encontrar a matriz inversa
+        self.inversa()
+
+        x = MatrizInversaGaussJordan.multiMatrizes(self.M_inversa, [[item] for item in self.B])
 
         self.solution = [item[0] for item in x]
 
         avalicao = self.test()
         
-        return f'{SolucoesSistema.MatrizParaStr(inversa)}\n{SolucoesSistema.vetorParaStr(self.solution)}\n{avalicao}'
+        return f'{SolucoesSistema.MatrizParaStr(self.M_inversa)}\n{SolucoesSistema.vetorParaStr(self.solution)}\n{avalicao}'
     
     def multiMatrizes(a, b):
         result = [[0] * len(b[0]) for _ in range(len(a))]
