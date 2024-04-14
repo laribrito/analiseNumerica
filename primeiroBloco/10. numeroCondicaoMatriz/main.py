@@ -38,15 +38,15 @@ class NumCondicaoMatriz():
         x = MatrizInversaGaussJordan.multiMatrizes(self.M, inversa)
 
         # Calcular a norma de Frobenius das matrizes
-        norma_M = self.normaFrobenius(self.M)
-        norma_inversa = self.normaFrobenius(inversa)
+        norma_M = self.norma(self.M)
+        norma_inversa = self.norma(inversa)
 
         # Calcular o número de condição
         numero_condicao = norma_M * norma_inversa
 
         return f'{numero_condicao}'
 
-    def normaFrobenius(self, matriz):
+    def norma(self, matriz):
         # Implemente aqui o cálculo da norma de Frobenius da matriz
         # Por exemplo, para uma matriz A, a norma de Frobenius é a raiz quadrada da soma dos quadrados dos elementos da matriz
         soma_quadrados = sum(sum(x**2 for x in linha) for linha in matriz)
