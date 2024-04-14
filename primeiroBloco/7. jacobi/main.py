@@ -15,7 +15,8 @@ from SolucoesSistemaClass import SolucoesSistema
 
 class Jacobi(SolucoesSistema):
     def __init__(self, matriz) -> None:
-        super().__init__(matriz)
+        super().__init__(matriz, 1e-4)
+
 
     def xN(self, n):
         sum = 0
@@ -39,7 +40,12 @@ class Jacobi(SolucoesSistema):
 
         X = self.getNewX()
 
-        while not self.variacaoAbs(X, self.X) and not self.variacaoRel(X, self.X):
+        execute = True
+        while (not self.variacaoAbs(X, self.X) and not self.variacaoRel(X, self.X)) and execute:
+            for x in self.X:
+                if abs(x) == float('inf'):
+                    execute = False
+
             self.X = X.copy()
             X = self.getNewX()
         
@@ -47,7 +53,7 @@ class Jacobi(SolucoesSistema):
 
         avalicao = self.test()
         
-        return f'{self.vetorParaStr(self.solution)}\n{avalicao}'
+        return f'{SolucoesSistema.vetorParaStr(self.solution)}\n{avalicao}'
     
 def main():
     # Limpa o arquivo out.txt

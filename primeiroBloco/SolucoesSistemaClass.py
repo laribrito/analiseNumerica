@@ -1,11 +1,10 @@
 class SolucoesSistema:
-    tolerance = 1e-6
-
-    def __init__(self, matriz) -> None:
+    def __init__(self, matriz, tolerance=1e-6) -> None:
         if not self.ehMatrizValida(matriz):
             raise Exception('Essa matriz não é quadrada ou o vetor B não foi passado')
         
         self.M, self.B = self.separarMatriz(matriz)
+        self.tolerance = tolerance
         self.k = len(matriz)
         self.solution = None
 
@@ -24,14 +23,14 @@ class SolucoesSistema:
     
     def variacaoAbs(self, a:list, b:list):
         for ax, bx in zip(a, b):
-            if abs(ax - bx) > SolucoesSistema.tolerance:
+            if abs(ax - bx) > self.tolerance:
                 return False
         return True
 
     def variacaoRel(self, a:list, b:list):
         maxVar = max(a)
         for ax, bx in zip(a, b):
-            if abs((ax - bx)/maxVar) > SolucoesSistema.tolerance:
+            if abs((ax - bx)/maxVar) > self.tolerance:
                 return False
         return True
 
@@ -49,14 +48,14 @@ class SolucoesSistema:
 
 
                 delta = abs(result - esperado)
-                delta2 = abs(delta - SolucoesSistema.tolerance)
+                delta2 = abs(delta - self.tolerance)
                 
                 txtExtra = f'x({n+1}) esperava {esperado} mas foi calculado como {result}'
 
-                if delta2>SolucoesSistema.tolerance:
+                if delta2>self.tolerance:
                     return f'{txtExtra}\nO vetor encontrado não pode ser considerado solução'
 
-                if delta>SolucoesSistema.tolerance:
+                if delta>self.tolerance:
                     return 'O vetor encontrado está bem próximo da solução'
             return 'O vetor encontrado é uma solução é suficientemente boa'
             
