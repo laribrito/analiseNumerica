@@ -38,7 +38,12 @@ class GaussSeidel(SolucoesSistema):
 
         X = self.getNewX()
 
-        while not self.variacaoAbs(X, self.X) and not self.variacaoRel(X, self.X):
+        execute = True
+        while (not self.variacaoAbs(X, self.X) and not self.variacaoRel(X, self.X)) and execute:
+            for x in self.X:
+                if abs(x) == float('inf'):
+                    execute = False
+            
             self.X = X.copy()
             X = self.getNewX()
         
@@ -46,7 +51,7 @@ class GaussSeidel(SolucoesSistema):
 
         avalicao = self.test()
         
-        return f'{self.vetorParaStr(self.solution)}\n{avalicao}'
+        return f'{SolucoesSistema.vetorParaStr(self.solution)}\n{avalicao}'
     
 def main():
     # Limpa o arquivo out.txt
