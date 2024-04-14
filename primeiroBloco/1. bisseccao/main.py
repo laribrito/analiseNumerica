@@ -15,27 +15,30 @@ class Bisseccao(EncontrarRaizClass.EncontrarRaiz):
         super().__init__(equacao, tolerancia, a, b)
 
     def resolve(self):
+        raiz = None
+        if self.ehRaiz(self.a):
+            raiz = self.a
+
+        if self.ehRaiz(self.b):
+            raiz = self.b
+        
         if self.F(self.a) * self.F(self.b) > 0:
             return 'ERRO'
         
         x = 0
         c = 0
-        achouRaiz = False
-        while self.erroRelativo() >= self.tolerancia and not achouRaiz:
+        while self.erroRelativo() >= self.tolerancia and not raiz:
             x += 1
             c = (self.a + self.b) / 2.0
-
-            # print('a - b - f(a) - f(b) - b-a - (b-a)/a - c - f(c)')
-            # print(f'{self.a:.6f} - {self.b:.6f} - {self.F(self.a):.6f} - {self.F(self.b):.6f} - {self.erroAbs():.6f} - {self.erroRelativo():.6f} - {c:.6f} - {self.F(c):.6f}')
             
             if self.ehRaiz(c):
-                achouRaiz = True
+                raiz = c
             elif self.F(c) * self.F(self.a) < 0:
                 self.b = c
             else:
                 self.a = c
 
-        return f'F({op.truncate(c, 10)}) = {self.F(c)} / encontrado com {x} interacoes'
+        return f'F({op.truncate(raiz, 10)}) = {self.F(raiz)} / encontrado com {x} interacoes'
 
 def main():
     # Limpa o arquivo out.txt
