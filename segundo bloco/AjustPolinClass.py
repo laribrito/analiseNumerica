@@ -1,6 +1,6 @@
-class Interpolacao:
+class AjustPolin:
     def __init__(self, allX:list, allY:list) -> None:
-        if Interpolacao.validaPares(allX, allY):
+        if AjustPolin.validaPares(allX, allY):
             self.allX = allX
             self.allY = allY
             self.qtdPares = len(allX)
@@ -9,3 +9,9 @@ class Interpolacao:
 
     def validaPares(allX, allY):
         return len(allX) == len(allY)
+    
+    '''
+    parse num
+    '''
+    def pNum(num):
+        return f'{num:.5f}'
