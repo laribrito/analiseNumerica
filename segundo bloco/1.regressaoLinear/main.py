@@ -14,7 +14,10 @@ class RegressaoLinear(interpolacaoClass.Interpolacao):
         super().__init__(valoresX, valoresY)
 
     def resolve(self):
-        x = y = x_y = x_2 = 0
+        x = 0
+        y = 0
+        x_y = 0
+        x_2 = 0
 
         x = sum(self.allX)
         y = sum(self.allY)
@@ -24,8 +27,8 @@ class RegressaoLinear(interpolacaoClass.Interpolacao):
 
         b = (self.qtdPares*x_y-x*y)/(self.qtdPares*x_2-x**2)
         a = (y-b*x)/self.qtdPares
-        b = round(b, 2)
-        a = round(a, 2)
+        b = round(b, 4)
+        a = round(a, 4)
 
         labelA = ''
         if a > 0:
@@ -55,7 +58,7 @@ def main():
             listX.append(float(x))
             listY.append(float(y))
         except:
-            resultado = RegressaoLinear(listY, listY).resolve()
+            resultado = RegressaoLinear(listX, listY).resolve()
             # Escreve os resultados no arquivo out.txt
             with open(os.path.join(dir_path, 'out.txt'), 'a') as arquivo:
                 arquivo.write(str(resultado) + '\n\n')
