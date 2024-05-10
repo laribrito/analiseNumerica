@@ -1,3 +1,4 @@
+import math
 import sys
 import os
 
@@ -7,9 +8,9 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 # Adiciona o diretório raiz do projeto ao sys.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-import interpolacaoClass
+from AjustPolinClass import AjustPolin as ap
 
-class RegressaoLinear(interpolacaoClass.Interpolacao):
+class RegressaoLinear(ap):
     def __init__(self, valoresX: list, valoresY: list) -> None:
         super().__init__(valoresX, valoresY)
 
@@ -18,25 +19,30 @@ class RegressaoLinear(interpolacaoClass.Interpolacao):
         y = 0
         x_y = 0
         x_2 = 0
+        y_2 = 0
 
         x = sum(self.allX)
         y = sum(self.allY)
         for i in range (self.qtdPares):
             x_y += self.allX[i] * self.allY[i]
-            x_2 += self.allX[i]**2
+            x_2 += self.allX[i] ** 2
+            y_2 += self.allY[i] ** 2
 
         b = (self.qtdPares*x_y-x*y)/(self.qtdPares*x_2-x**2)
         a = (y-b*x)/self.qtdPares
-        b = round(b, 4)
-        a = round(a, 4)
 
         labelA = ''
         if a > 0:
-            labelA = f'+ {a}'
+            labelA = f'+ {ap.pNum(a)}'
         elif a!=0:
-            labelA = f'- {abs(a)}'
+            labelA = f'- {ap.pNum(abs(a))}'
 
-        return f'y = {b}x {labelA}'
+        self.solucao = f'y = {ap.pNum(b)} * x {labelA}'
+
+        # 'desvio padrão'
+        self.erroEstimado = (self.qtdPares*x_y - x * y)/(math.sqrt(self.qtdPares*x_2 - x**2)*math.sqrt(self.qtdPares*y_2 - y**2))
+
+        return f'{self.solucao}\nErro estimado: {ap.pNum(self.erroEstimado)}'
 
 def main():
     # Limpa o arquivo out.txt
