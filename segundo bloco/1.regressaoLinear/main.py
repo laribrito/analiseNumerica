@@ -11,8 +11,8 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from AjustPolinClass import AjustPolin as ap
 
 class RegressaoLinear(ap):
-    def __init__(self, valoresX: list, valoresY: list) -> None:
-        super().__init__(valoresX, valoresY)
+    def __init__(self, valoresX: list, valoresY: list, index:int, pathSave:str) -> None:
+        super().__init__(valoresX, valoresY, index, pathSave)
 
     def resolve(self):
         x = 0
@@ -37,12 +37,12 @@ class RegressaoLinear(ap):
         elif a!=0:
             labelA = f'- {ap.pNum(abs(a))}'
 
-        self.solucao = f'y = {ap.pNum(b)} * x {labelA}'
+        self.solution = f'{ap.pNum(b)} * x {labelA}'
 
         # 'desvio padrão'
         self.erroEstimado = (self.qtdPares*x_y - x * y)/(math.sqrt(self.qtdPares*x_2 - x**2)*math.sqrt(self.qtdPares*y_2 - y**2))
 
-        return f'{self.solucao}\nErro estimado: {ap.pNum(self.erroEstimado)}'
+        return f'y = {self.solution}\nErro estimado: {ap.pNum(self.erroEstimado)}'
 
 def main():
     # Limpa o arquivo out.txt
@@ -55,6 +55,7 @@ def main():
     # Itera sobre as linhas do arquivo de entrada
     listX = []
     listY = []
+    index = 0
     for l in linhas:
         try:
             params = l.split()
@@ -64,7 +65,10 @@ def main():
             listX.append(float(x))
             listY.append(float(y))
         except:
-            resultado = RegressaoLinear(listX, listY).resolve()
+            index += 1
+            obj = RegressaoLinear(listX, listY, index, dir_path)
+            resultado = obj.resolve()
+            obj.plot()
             # Escreve os resultados no arquivo out.txt
             with open(os.path.join(dir_path, 'out.txt'), 'a') as arquivo:
                 arquivo.write(str(resultado) + '\n\n')
