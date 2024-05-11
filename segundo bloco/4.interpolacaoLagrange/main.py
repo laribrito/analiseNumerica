@@ -12,8 +12,8 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import AjustPolinClass
 
 class InterpolacaoLagrange(AjustPolinClass.AjustPolin):
-    def __init__(self, valoresX: list, valoresY: list) -> None:
-        super().__init__(valoresX, valoresY)
+    def __init__(self, valoresX: list, valoresY: list, index:int, pathSave:str) -> None:
+        super().__init__(valoresX, valoresY, index, pathSave)
     
     def polinomioLagrange(self, index):
         denominador = 1
@@ -41,9 +41,9 @@ class InterpolacaoLagrange(AjustPolinClass.AjustPolin):
         func = func[:-1]
 
         exp = sy.sympify(func)
-        simplificado = sy.expand(exp)
+        self.solution = sy.expand(exp)
 
-        return f'{simplificado}'
+        return f'{self.solution}'
 
 def main():
     # Limpa o arquivo out.txt
@@ -56,6 +56,7 @@ def main():
     # Itera sobre as linhas do arquivo de entrada
     listX = []
     listY = []
+    index = 0
     for l in linhas:
         try:
             params = l.split()
@@ -65,7 +66,10 @@ def main():
             listX.append(float(x))
             listY.append(float(y))
         except:
-            resultado = InterpolacaoLagrange(listX, listY).resolve()
+            index += 1
+            obj = InterpolacaoLagrange(listX, listY, index, dir_path)
+            resultado = obj.resolve()
+            obj.plot()
             # Escreve os resultados no arquivo out.txt
             with open(os.path.join(dir_path, 'out.txt'), 'a') as arquivo:
                 arquivo.write(str(resultado) + '\n\n')
