@@ -1,22 +1,13 @@
 import os
 import matplotlib.pyplot as plt
 import numpy as np
+from validaParesClass import ValidaPares
 
-class AjustPolin:
-    def __init__(self, allX:list, allY:list, indexCaso:int, path:str) -> None:
-        if AjustPolin.validaPares(allX, allY):
-            self.allX = allX
-            self.allY = allY
-            self.qtdPares = len(allX)
-            self.solution = None
-            self.indexCaso = indexCaso
-            self.pathGraph = path
-
-        else:
-            raise Exception('Os pares passados como parâmetro estão incompletos')
-
-    def validaPares(allX, allY):
-        return len(allX) == len(allY)
+class AjustPolin(ValidaPares):
+    def __init__(self, allX: list, allY: list, indexCaso: int, pathSave) -> None:
+        super().__init__(allX, allY)
+        self.indexCaso = indexCaso
+        self.pathGraph = pathSave
 
     def plot(self, labelFunc=None):
         # Avalia a função
