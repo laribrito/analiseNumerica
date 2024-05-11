@@ -13,8 +13,8 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import AjustPolinClass
 
 class MMQ_Discreto(AjustPolinClass.AjustPolin):
-    def __init__(self, valoresX: list, valoresY: list) -> None:
-        super().__init__(valoresX, valoresY)
+    def __init__(self, valoresX: list, valoresY: list, index:int, pathSave:str)  -> None:
+        super().__init__(valoresX, valoresY, index, pathSave)
 
     def resolve(self):
         x = Symbol("x")
@@ -46,7 +46,8 @@ class MMQ_Discreto(AjustPolinClass.AjustPolin):
             resultado_final += round(resultado[i,0], 2) * potencializacao
             potencializacao *= x
 
-        return resultado_final
+        self.solution = resultado_final
+        return f'y = {self.solution}'
 
 def main():
     # Limpa o arquivo out.txt
@@ -59,6 +60,7 @@ def main():
     # Itera sobre as linhas do arquivo de entrada
     listX = []
     listY = []
+    index = 0
     for l in linhas:
         try:
             params = l.split()
@@ -68,7 +70,10 @@ def main():
             listX.append(float(x))
             listY.append(float(y))
         except:
-            resultado = MMQ_Discreto(listX, listY).resolve()
+            index += 1
+            obj = MMQ_Discreto(listX, listY, index, dir_path)
+            resultado = obj.resolve()
+            obj.plot()
             # Escreve os resultados no arquivo out.txt
             with open(os.path.join(dir_path, 'out.txt'), 'a') as arquivo:
                 arquivo.write(str(resultado) + '\n\n')

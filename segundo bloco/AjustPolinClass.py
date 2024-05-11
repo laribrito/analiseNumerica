@@ -21,7 +21,7 @@ class AjustPolin:
     def plot(self, labelFunc=None):
         # Avalia a função
         x = np.linspace(min(self.allX), max(self.allX), 100)
-        y = eval(self.solution)
+        y = eval(str(self.solution))
 
         # Plota a função
         plt.plot(x, y, label=labelFunc)
