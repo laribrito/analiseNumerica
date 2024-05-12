@@ -2,7 +2,9 @@
 
 1.5191703
 Erro estimado: 0.121363033333330
+Erro Percentual: 7.98877 %
 
 0.43039933661066465
 Erro estimado: 0.0696006300688868
+Erro Percentual: 16.17118 %
 

@@ -44,12 +44,17 @@ class Simpson3_8(calculoAreaClass.CalculoIntegral):
 
         response = f'{self.result}'
 
-        erroEstimado = self.calcErro()
+        erroEstimado = self.calcErroDiff()
 
         if erroEstimado:
             response += f'\nErro estimado: {erroEstimado}'
 
-        return response      
+        erroPercent = self.calcErroPercent()
+
+        if erroPercent:
+            response += f'\nErro Percentual: {(Simpson3_8.pNum(erroPercent))} %'
+
+        return response  
 
 def main():
     # Limpa o arquivo out.txt
@@ -81,8 +86,12 @@ def main():
             func = linhas[i]
             i+=1
                 
-        obj = Simpson3_8(listX, listY, func)
-        resultado = obj.resolve()
+        try:
+            obj = Simpson3_8(listX, listY, func)
+            resultado = obj.resolve()
+        except Exception as e:
+            resultado = f'ERRO: {e}'
+
         # Escreve os resultados no arquivo out.txt
         with open(os.path.join(dir_path, 'out.txt'), 'a') as arquivo:
             arquivo.write(str(resultado) + '\n\n')
