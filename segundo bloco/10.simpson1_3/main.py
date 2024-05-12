@@ -16,7 +16,7 @@ class Simpson1_3_Multiplo(calculoAreaClass.CalculoIntegral):
         self.validaValorDeH()
 
     def validaQuantidadeX(self):
-        if (self.qtdPares - 1) % 2 != 0 and self.qtdPares > 1:
+        if (self.qtdPares - 1) % 2 != 0 or self.qtdPares <= 1:
             raise Exception('A quantidade de intervalos precisa ser par')
         return True
 
