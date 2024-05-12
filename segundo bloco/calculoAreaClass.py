@@ -6,6 +6,7 @@ class CalculoIntegral(ValidaPares):
         super().__init__(listX, listY)
         self.func = f
         self.result = None
+        self.h = (listX[0] - listX[-1]) / (self.qtdPares-1)
 
     def integralReal(self):
         if self.func:
