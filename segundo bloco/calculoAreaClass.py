@@ -14,6 +14,10 @@ class CalculoIntegral(ValidaPares):
             # Integre a expressão simbólica
             return sp.integrate(self.func, (x, self.allX[0], self.allX[-1])).evalf()
 
-    def calcErro(self):
+    def calcErroDiff(self):
         if self.result and self.func:
             return self.integralReal() - self.result
+        
+    def calcErroPercent(self):
+        if self.result and self.func:
+            return self.calcErroDiff() / self.result * 100

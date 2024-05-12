@@ -27,9 +27,3 @@ class AjustPolin(ValidaPares):
         plt.grid(True)
         plt.savefig(os.path.join(self.pathGraph, f'grafico_caso{self.indexCaso}.png'))
         plt.clf()
-    
-    '''
-    parse num
-    '''
-    def pNum(num):
-        return f'{num:.5f}'

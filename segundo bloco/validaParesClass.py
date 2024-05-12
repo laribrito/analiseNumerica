@@ -10,3 +10,10 @@ class ValidaPares:
 
     def validaPares(allX, allY):
         return len(allX) == len(allY)
+    
+    '''
+    parse num
+    '''
+    def pNum(num):
+        return f'{num:.5f}'
+    
