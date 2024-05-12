@@ -23,10 +23,15 @@ class TrapezioSimples(calculoAreaClass.CalculoIntegral):
 
         response = f'{self.result}'
 
-        erroEstimado = self.calcErro()
+        erroEstimado = self.calcErroDiff()
 
         if erroEstimado:
             response += f'\nErro estimado: {erroEstimado}'
+
+        erroPercent = self.calcErroPercent()
+
+        if erroPercent:
+            response += f'\nErro Percentual: {(TrapezioSimples.pNum(erroPercent))} %'
 
         return response      
 

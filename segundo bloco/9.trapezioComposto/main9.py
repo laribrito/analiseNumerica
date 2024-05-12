@@ -27,12 +27,17 @@ class TrapezioComposto(calculoAreaClass.CalculoIntegral):
 
         response = f'{self.result}'
 
-        erroEstimado = self.calcErro()
+        erroEstimado = self.calcErroDiff()
 
         if erroEstimado:
             response += f'\nErro estimado: {erroEstimado}'
 
-        return response      
+        erroPercent = self.calcErroPercent()
+
+        if erroPercent:
+            response += f'\nErro Percentual: {(TrapezioComposto.pNum(erroPercent))} %'
+
+        return response       
 
 def main():
     # Limpa o arquivo out.txt
