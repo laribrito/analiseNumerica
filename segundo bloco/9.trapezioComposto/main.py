@@ -20,7 +20,7 @@ class TrapezioComposto(calculoAreaClass.CalculoIntegral):
         f_n = self.allY[-1]
 
         somador = 0
-        for i in range(1, self.qtdPares - 1):  # Corrigindo o range
+        for i in range(1, self.qtdPares - 1): 
             somador += self.allY[i]
 
         self.result = (b-a)*((f_0+2*somador+f_n)/(2*(self.qtdPares-1)))
