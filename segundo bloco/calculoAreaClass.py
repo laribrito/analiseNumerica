@@ -12,7 +12,7 @@ class CalculoIntegral(ValidaPares):
             x = sp.symbols('x')
             
             # Integre a expressão simbólica
-            return sp.integrate(self.func, (x, self.allX[0], self.allX[-1]))
+            return sp.integrate(self.func, (x, self.allX[0], self.allX[-1])).evalf()
 
     def calcErro(self):
         if self.result and self.func:
