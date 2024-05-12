@@ -69,8 +69,12 @@ def main():
             func = linhas[i]
             i+=1
                 
-        obj = TrapezioComposto(listX, listY, func)
-        resultado = obj.resolve()
+        try:
+            obj = TrapezioComposto(listX, listY, func)
+            resultado = obj.resolve()
+        except Exception as e:
+            resultado = f'ERRO: {e}'
+
         # Escreve os resultados no arquivo out.txt
         with open(os.path.join(dir_path, 'out.txt'), 'a') as arquivo:
             arquivo.write(str(resultado) + '\n\n')
