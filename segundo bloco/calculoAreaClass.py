@@ -1,12 +1,11 @@
 from validaParesClass import ValidaPares
 import sympy as sp
 
-class CalculoIntegral(ValidaPares):
-    def __init__(self, listX, listY,f=None) -> None:
-        super().__init__(listX, listY)
-        self.func = f
-        self.result = None
-        self.h = (listX[0] - listX[-1]) / (self.qtdPares-1)
+class CalculosErros:
+    def __init__(self,allX, f=None) -> None:
+            self.func = f
+            self.result = None
+            self.allX = allX
 
     def integralReal(self):
         if self.func:
@@ -22,3 +21,14 @@ class CalculoIntegral(ValidaPares):
     def calcErroPercent(self):
         if self.result and self.func:
             return self.calcErroDiff() / self.result * 100
+
+class CalculoIntegral(ValidaPares, CalculosErros):
+    def __init__(self, listX, listY,f=None) -> None:
+        ValidaPares.__init__(self, listX, listY)
+        CalculosErros.__init__(self, listX, f)
+        self.func = f
+        self.result = None
+        self.h = (listX[0] - listX[-1]) / (self.qtdPares-1)
+
+    def resolve(self):
+        raise Exception('Implemente o método resolve')
