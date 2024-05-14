@@ -29,7 +29,6 @@ class CalculoIntegral(ValidaPares, CalculosErros):
         CalculosErros.__init__(self, listX, f)
         self.func = f
         self.result = None
-        self.h = (listX[0] - listX[-1]) / (self.qtdPares-1)
 
     def resolve(self):
         raise Exception('Implemente o método resolve')

@@ -4,7 +4,7 @@ class ValidaPares:
             self.allX = allX
             self.allY = allY
             self.qtdPares = len(allX)
-
+            self.h = (allX[0] - allX[-1]) / (self.qtdPares-1)
         else:
             raise Exception('Os pares passados como parâmetro estão incompletos')
 

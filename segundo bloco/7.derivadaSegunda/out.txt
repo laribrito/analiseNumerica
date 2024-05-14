@@ -1,0 +1,67 @@
+Derivada Centrada: -0.16000000000007114
+Erro estimado: -0.04271843657391014
+Erro Percentual: 26.69902 %
+
+Derivada Progressiva: -0.19999999999988907
+Erro estimado: -0.002718436574092209
+Erro Percentual: 1.35922 %
+
+Derivada Regressiva: 37.08000000000008
+Erro estimado: -37.28271843657406
+Erro Percentual: -100.54671 %
+
+
+Derivada Centrada: -0.8999999999999895
+Erro estimado: 0.07466438509031115
+Erro Percentual: -8.29604 %
+
+Derivada Progressiva: -0.7000000000000116
+Erro estimado: -0.12533561490966671
+Erro Percentual: 17.90509 %
+
+Derivada Regressiva: -23.300000000000004
+Erro estimado: 22.474664385090325
+Erro Percentual: -96.45779 %
+
+
+Derivada Centrada: -0.9749999999999979
+Erro estimado: -0.005066577841243758
+Erro Percentual: 0.51965 %
+
+Derivada Progressiva: -0.9250000000000034
+Erro estimado: -0.05506657784123825
+Erro Percentual: 5.95314 %
+
+Derivada Regressiva: -4.875000000000001
+Erro estimado: 3.8949334221587595
+Erro Percentual: -79.89607 %
+
+
+ERRO: list index out of range
+
+Derivada Centrada: 1.2500000000000009
+Erro estimado: -0.028597241839831034
+Erro Percentual: -2.28778 %
+
+Derivada Progressiva: 1.500000000000001
+Erro estimado: -0.27859724183983126
+Erro Percentual: -18.57315 %
+
+Derivada Regressiva: 25.999999999999996
+Erro estimado: -24.778597241839826
+Erro Percentual: -95.30230 %
+
+
+Derivada Centrada: 596676.2116784564
+Erro estimado: 818110.6250739807
+Erro Percentual: 137.11132 %
+
+Derivada Progressiva: 191917.3831526944
+Erro estimado: 1222869.4535997426
+Erro Percentual: 637.18535 %
+
+Derivada Regressiva: -1775146.214236517
+Erro estimado: 3189933.050988954
+Erro Percentual: -179.69974 %
+
+
