@@ -98,10 +98,10 @@ def main():
             i+=1
 
         index = int(linhas[i])
-        
+        i+=1
+
         func = None
         if len(linhas[i]) > 1:
-            i+=1
             func = linhas[i]
             i+=1
                 
