@@ -1,0 +1,91 @@
+Derivada Centrada: 0.04
+Erro estimado: 9.760000000000012
+Erro Percentual: 24400.00000 %
+
+Derivada Progressiva: -5.559999999999999
+Erro estimado: 15.36000000000001
+Erro Percentual: -276.25899 %
+
+Derivada Retardada: 5.639999999999999
+Erro estimado: 4.160000000000013
+Erro Percentual: 73.75887 %
+
+
+Derivada Centrada: 0.4660000000000014
+Erro estimado: 0.0002524041201554805
+Erro Percentual: 0.05416 %
+
+Derivada Progressiva: 0.46199999999999963
+Erro estimado: 0.0042524041201572604
+Erro Percentual: 0.92043 %
+
+Derivada Retardada: 0.4700000000000032
+Erro estimado: -0.0037475958798462994
+Erro Percentual: -0.79736 %
+
+
+Derivada Centrada: -0.5650000000000001
+Erro estimado: 0.00035752660496468636
+Erro Percentual: -0.06328 %
+
+Derivada Progressiva: -0.6099999999999995
+Erro estimado: 0.04535752660496417
+Erro Percentual: -7.43566 %
+
+Derivada Retardada: -0.5200000000000006
+Erro estimado: -0.0446424733950348
+Erro Percentual: 8.58509 %
+
+
+Derivada Centrada: -0.1974999999999999
+Erro estimado: -0.0011693307950613185
+Erro Percentual: 0.59207 %
+
+Derivada Progressiva: -0.2949999999999997
+Erro estimado: 0.09633066920493849
+Erro Percentual: -32.65446 %
+
+Derivada Retardada: -0.10000000000000009
+Erro estimado: -0.09866933079506113
+Erro Percentual: 98.66933 %
+
+
+Derivada Centrada: 0.07059999999999948
+Erro estimado: 0.0001372016677034238
+Erro Percentual: 0.19434 %
+
+Derivada Progressiva: 0.02079999999999969
+Erro estimado: 0.04993720166770321
+Erro Percentual: 240.08270 %
+
+Derivada Retardada: 0.12039999999999929
+Erro estimado: -0.04966279833229638
+Erro Percentual: -41.24817 %
+
+
+Derivada Centrada: 1.2249999999999999
+Erro estimado: -0.003597241839830012
+Erro Percentual: -0.29365 %
+
+Derivada Progressiva: 1.35
+Erro estimado: -0.12859724183983023
+Erro Percentual: -9.52572 %
+
+Derivada Retardada: 1.0999999999999999
+Erro estimado: 0.12140275816016999
+Erro Percentual: 11.03661 %
+
+
+Derivada Centrada: -4425.893094125602
+Erro estimado: -1258.5183035542887
+Erro Percentual: 28.43535 %
+
+Derivada Progressiva: -1740.8501415726234
+Erro estimado: -3943.5612561072676
+Erro Percentual: 226.53077 %
+
+Derivada Retardada: -7110.93604667858
+Erro estimado: 1426.5246489986894
+Erro Percentual: -20.06100 %
+
+

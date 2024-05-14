@@ -16,6 +16,7 @@ class CalculosErros:
 
     def calcErroDiff(self):
         if self.result and self.func:
+            x = self.integralReal()
             return self.integralReal() - self.result
         
     def calcErroPercent(self):

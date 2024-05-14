@@ -1,6 +1,7 @@
 import os
 import matplotlib.pyplot as plt
 import numpy as np
+import sympy as sp
 from validaParesClass import ValidaPares
 
 class AjustPolin(ValidaPares):
@@ -12,13 +13,17 @@ class AjustPolin(ValidaPares):
     def plot(self, labelFunc=None):
         # Avalia a função
         x = np.linspace(min(self.allX), max(self.allX), 100)
-        y = eval(str(self.solution))
 
-        # Plota a função
-        plt.plot(x, y, label=labelFunc)
+        func = sp.sympify(self.solution)
+        xSympy = sp.Symbol("x")
+        y = [func.subs(xSympy, x_val) for x_val in x]
 
-        # Plota os pontos
-        plt.scatter(self.allX, self.allY, color='red', label='Pontos')
+        plt.plot(x, y, label = labelFunc)
+        plt.scatter(self.allX, self.allY, color = 'red', label = 'Pontos de dados')
+
+        # Configurando os limites do eixo Y
+        padding = 2
+        plt.ylim(min(self.allY)-padding, max(self.allY)+padding)
 
         plt.xlabel('X')
         plt.ylabel('Y')
