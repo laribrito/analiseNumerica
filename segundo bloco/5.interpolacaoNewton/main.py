@@ -15,11 +15,21 @@ class InterpolacaoNewton(AjustPolinClass.AjustPolin):
     def __init__(self, valoresX: list, valoresY: list, index:int, pathSave:str) -> None:
         super().__init__(valoresX, valoresY, index, pathSave)
     
+    def b(self, i:list):
+        if len(i) == 1:
+            return self.allY[0]
+        
+        if len(i) == 2:
+            return (self.allY[i[0]] - self.allY[i[1]] )/(self.allX[i[0]] - self.allX[i[1]])
+        
+        return (self.b(i[:-1]) - self.b(i[1:]))/(self.allX[i[0]] - self.allX[i[-1]])
+
+
     def polinomioNewton(self):
         f = ''
 
         for i in range(self.qtdPares):
-            f += f'{self.allY[i]} *'
+            f += f'{self.b(list(range(i, -1, -1)))} *'
             for j in range(i):
                 f += f'(x - {self.allX[j]}) *'
             

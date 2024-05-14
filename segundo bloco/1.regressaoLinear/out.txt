@@ -1,6 +1,12 @@
-y = 0.83929 * x + 0.07143
-Erro estimado: 0.93184
+y = 0.46679 * x + 0.53452
+Erro estimado: 0.99982
 
-y = 362.48541 * x - 709699.53326
-Erro estimado: 0.96854
+y = -0.38283 * x + 1.04347
+Erro estimado: -0.96559
+
+y = 0.16899 * x + 0.73904
+Erro estimado: 0.94569
+
+y = 1.52000 * x + 0.94200
+Erro estimado: 0.99323
 
