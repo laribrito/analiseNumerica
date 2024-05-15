@@ -1,7 +1,7 @@
 import sys
 import os
 
-import sympy as sy
+import sympy as sp
 
 # Obtém o diretório atual do script
 dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -42,8 +42,8 @@ class InterpolacaoNewton(AjustPolinClass.AjustPolin):
         numerador = self.polinomioNewton()
         f = f'{numerador}/({self.allX[0]} - {self.allX[self.qtdPares-1]})'
 
-        exp = sy.sympify(f)
-        self.solution = sy.expand(exp)
+        exp = sp.sympify(f)
+        self.solution = sp.expand(exp)
 
         return f'{self.solution}'       
 

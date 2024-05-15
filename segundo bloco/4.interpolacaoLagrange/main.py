@@ -1,7 +1,7 @@
 import sys
 import os
 
-import sympy as sy
+import sympy as sp
 
 # Obtém o diretório atual do script
 dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -34,14 +34,14 @@ class InterpolacaoLagrange(AjustPolinClass.AjustPolin):
 
     def resolve(self):
         func = ''
-        x = sy.Symbol('x')
+        x = sp.Symbol('x')
 
         for i in range(self.qtdPares):
             func += f'{self.allY[i]}*({self.polinomioLagrange(i)}) +'
         func = func[:-1]
 
-        exp = sy.sympify(func)
-        self.solution = sy.expand(exp)
+        exp = sp.sympify(func)
+        self.solution = sp.expand(exp)
 
         return f'{self.solution}'
 
