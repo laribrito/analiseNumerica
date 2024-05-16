@@ -37,7 +37,7 @@ class Simpson3_8(calculoAreaClass.CalculoIntegral):
 
         integral = 0
 
-        for i in range(0, self.qtdPares, 4):
+        for i in range(0, self.qtdPares-1, 3):
             integral += (b-a)/8*(self.allY[i]+3*self.allY[i+1]+3*self.allY[i+2]+self.allY[i+3])
 
         self.result = integral
