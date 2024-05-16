@@ -43,7 +43,7 @@ class MMQ_Discreto(AjustPolinClass.AjustPolin):
         potencializacao = 1
         resultado_final = 0
         for i in range(tamFuncao):
-            resultado_final += round(resultado[i,0], 2) * potencializacao
+            resultado_final += round(resultado[i,0], 5) * potencializacao
             potencializacao *= x
 
         self.solution = resultado_final
