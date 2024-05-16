@@ -1,5 +1,5 @@
 0.25 * (x - 2) + 0.1 * math.sin(x)
-F(1.6001728295) = 6.154658305224103e-08 / encontrado com 4 interacoes
+F(1.6001726102) = 7.368881713154529e-09 / encontrado com 4 interacoes
 
 0.1 = 1 - ( 1 + x + (x*x)/2) * math.exp(-x)
 F(1.1020662241) = -1.8071749049997088e-07 / encontrado com 5 interacoes

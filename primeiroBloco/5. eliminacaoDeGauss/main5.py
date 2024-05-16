@@ -44,7 +44,7 @@ class EliminacaoGauss(SolucoesSistema):
         
         self.solution = X
         avaliacao = self.test()
-        return f'{self.vetorParaStr(X)}\n{avaliacao}'
+        return f'{EliminacaoGauss.vetorParaStr(X)}\n{avaliacao}'
 
 def main():
     # Limpa o arquivo out.txt
