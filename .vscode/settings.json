@@ -1,6 +1,7 @@
 {
     "python.analysis.extraPaths": [
         "./primeiroBloco/5. eliminacaoDeGauss",
-        "./primeiroBloco/9. matrizInversa"
+        "./primeiroBloco/9. matrizInversa",
+        "./terceiroBloco/6.rungeKutta4"
     ]
 }

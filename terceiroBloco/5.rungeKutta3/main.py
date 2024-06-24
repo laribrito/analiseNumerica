@@ -11,9 +11,9 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 # Adiciona o diretório raiz do projeto ao sys.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from baseClass import Base
+from base1Class import Base1
 
-class RungeKutta3(Base):
+class RungeKutta3(Base1):
     def __init__(self, funcao: str, h: int, pontoXInicial:list, maxX:int, pathSave:str)  -> None:
         super().__init__(funcao, h, pontoXInicial, maxX, pathSave)
         self.resultado = [self.y0]

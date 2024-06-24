@@ -1,7 +1,9 @@
 from tabulate import tabulate
 import sympy as sp
 
-class Base:
+from base0Class import Base0
+
+class Base1(Base0):
     def __init__(self, funcao: str, h: int, pontoXInicial:list, maxX:int, pathSave:str)  -> None:
         self.f = funcao
         self.h = h
@@ -12,10 +14,6 @@ class Base:
         self.parsedResult = ''
         self.headers = ['x', 'yVerdadeiro']
         self.resultado = None
-
-    def addColumn(self, array, label):
-        self.table = [row + [array[i]] for i, row in enumerate(self.table)]
-        self.headers.append(label)
 
     def resolverFunc(self, xValue, yValue):
         x, y = sp.symbols('x y')
@@ -48,20 +46,7 @@ class Base:
 
         #     self.addColumn(self.erroLocal, 'Erro Local')
         pass
-
-    def valoresX(self):
-        intervaloX = self.xf - self.x0
-        qtd = intervaloX / self.h
-        lista = [self.x0]
-        x = self.x0
-        while x < self.xf:
-            x += self.h
-            lista.append(x)
-
-        lista[-1] = self.xf
-        
-        return lista
-    
+ 
     def encontraFuncaoDerivada(self):
         x = sp.symbols('x')
         
@@ -89,8 +74,3 @@ class Base:
             self.realSolution = [F.subs(x, val) for val in x_values]
 
             self.table = [[x, y] for x, y in zip(x_values, self.realSolution)]
-        
-    def parseTable(self):
-        if self.table:
-            return tabulate(self.table, headers=self.headers , tablefmt="pipe")
-
