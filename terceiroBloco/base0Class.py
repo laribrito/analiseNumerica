@@ -4,9 +4,16 @@ import sympy as sp
 class Base0:
     def __init__(self)  -> None:
         self.headers = ['x']
+        self.x0 = 0
+        self.xf = 0
+        self.table = []
+        self.headers = []
 
     def addColumn(self, array, label):
-        self.table = [row + [array[i]] for i, row in enumerate(self.table)]
+        if self.table:
+            self.table = [row + [array[i]] for i, row in enumerate(self.table)]
+        else:
+            self.table = [[row] for row in array]
         self.headers.append(label)
 
     def valoresX(self):
