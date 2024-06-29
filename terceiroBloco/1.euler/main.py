@@ -25,7 +25,6 @@ class Euler(Base1):
     def resolve(self):
         self.findRealSolution()
 
-
         x_values = self.valoresX()
 
         for i in range(len(x_values)-1):
@@ -67,6 +66,8 @@ def main():
         # Escreve os resultados no arquivo out.txt
         with open(os.path.join(dir_path, 'out.txt'), 'a') as arquivo:
             arquivo.write(str(resultado) + '\n\n')
+
+        index += 1
 
 if __name__ == '__main__':
     main()

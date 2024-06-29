@@ -13,14 +13,15 @@ class Base1(Base0):
         self.pathToSave = pathSave
         self.parsedResult = ''
         self.headers = ['x', 'yVerdadeiro']
+        self.vars = sp.symbols('x y')
         self.resultado = None
 
     def resolverFunc(self, xValue, yValue):
-        x, y = sp.symbols('x y')
+        x, y = self.vars
         return self.func.subs({x: xValue, y: yValue})
 
     def transformFunction(self):
-        x = sp.symbols('x')
+        x, y = self.vars
 
         self.func = sp.sympify(self.f)
 
@@ -48,29 +49,35 @@ class Base1(Base0):
         pass
  
     def encontraFuncaoDerivada(self):
-        x = sp.symbols('x')
+        x, y = sp.symbols('x y')
         
         self.transformFunction()
-
+        
+        # Integrando a função
         F = sp.integrate(self.func, x)
-
+        
+        # Adicionando a constante de integração
         C = sp.symbols('C')
         F = F + C
-
-        C_value = sp.solve(F.subs(x, self.x0) - self.y0, C)[0]
-
+        
+        # Substituindo os valores de x e y para resolver C
+        C_value = sp.solve(F.subs({x: self.x0, y: self.y0}) - self.y0, C)[0]
+        
+        # Substituindo C na função
         F = F.subs(C, C_value)
-
+        
         return F
 
     def findRealSolution(self):
         if self.f:
-            x = sp.symbols('x')
+            x, y = self.vars
 
             F = self.encontraFuncaoDerivada()
 
             x_values = self.valoresX()
 
-            self.realSolution = [F.subs(x, val) for val in x_values]
+            self.realSolution = [self.y0]
+            for index, x_i in enumerate(x_values[1:]):
+                self.realSolution.append(F.subs({x: x_i, y: self.realSolution[index]}))
 
             self.table = [[x, y] for x, y in zip(x_values, self.realSolution)]
